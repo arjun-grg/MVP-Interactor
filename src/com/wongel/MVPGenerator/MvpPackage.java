@@ -1,21 +1,13 @@
+package com.wongel.MVPGenerator;
+
 import com.intellij.ide.fileTemplates.FileTemplate;
 import com.intellij.ide.fileTemplates.FileTemplateManager;
 import com.intellij.ide.fileTemplates.FileTemplateUtil;
-import com.intellij.ide.highlighter.JavaClassFileType;
-import com.intellij.ide.projectWizard.ModuleTypeCategory;
-import com.intellij.lang.Language;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
-import com.intellij.openapi.editor.Caret;
-import com.intellij.openapi.editor.Editor;
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.pom.Navigatable;
 import com.intellij.psi.*;
-import com.sun.org.apache.bcel.internal.classfile.JavaClass;
 
-import java.io.File;
 import java.util.Properties;
 
 /**

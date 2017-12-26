@@ -1,17 +1,16 @@
 <idea-plugin>
-    <id>com.your.company.unique.plugin.id</id>
-    <name>Plugin display name here</name>
+    <id>com.wongel.MVPGenerator</id>
+    <name>MVP-Interactor Generator</name>
     <version>1.0</version>
-    <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+    <vendor email="tsering.wongel@gmail.com" url="">Tsering Wongel</vendor>
 
     <description><![CDATA[
-      Enter short description for your plugin here.<br>
-      <em>most HTML tags may be used</em>
+      This plugin is used to create MVP package with Presenter,view and interactor both in java/kotlin.<br>
+      This plugin uses Mosby as default MVP handler.
     ]]></description>
 
     <change-notes><![CDATA[
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>
+
     ]]>
     </change-notes>
 
@@ -29,7 +28,7 @@
     </extensions>
 
     <actions>
-        <action id="MvpPackage.id" class="MvpPackage" text="New Mvp Package" description="Create Mvp package">
+        <action id="MvpPackage.id" class="com.wongel.MVPGenerator.MvpPackage" text="New Mvp Package" description="Create Mvp package">
             <add-to-group group-id="NewGroup" anchor="first"/>
         </action>
     </actions>

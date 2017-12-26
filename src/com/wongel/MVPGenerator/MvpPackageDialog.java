@@ -1,3 +1,5 @@
+package com.wongel.MVPGenerator;
+
 import org.apache.http.util.TextUtils;
 
 import javax.swing.*;

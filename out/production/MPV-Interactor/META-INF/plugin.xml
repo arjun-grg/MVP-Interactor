@@ -1,6 +1,6 @@
 <idea-plugin>
-    <id>com.your.company.unique.plugin.id</id>
-    <name>Plugin display name here</name>
+    <id>com.wongel.MVPGenerator</id>
+    <name>MVP-Interactor Generator</name>
     <version>1.0</version>
     <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
 
@@ -29,7 +29,7 @@
     </extensions>
 
     <actions>
-        <action id="MvpPackage.id" class="MvpPackage" text="New Mvp Package" description="Create Mvp package">
+        <action id="MvpPackage.id" class="com.wongel.MVPGenerator.MvpPackage" text="New Mvp Package" description="Create Mvp package">
             <add-to-group group-id="NewGroup" anchor="first"/>
         </action>
     </actions>

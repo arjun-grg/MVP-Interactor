@@ -1,3 +1,5 @@
+package com.wongel.MVPGenerator;
+
 import com.intellij.ide.highlighter.JavaClassFileType;
 import com.intellij.openapi.fileTypes.FileType;
 import com.intellij.openapi.fileTypes.FileTypeRegistry;
