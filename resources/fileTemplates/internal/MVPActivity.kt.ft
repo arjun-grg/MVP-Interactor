@@ -8,6 +8,7 @@ class ${NAME} : MvpActivity<${PACKAGE}View,${PACKAGE}Presenter>(), ${PACKAGE}Vie
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.${LAYOUT_NAME})
     }
 
     override fun createPresenter() = ${PACKAGE}Presenter()

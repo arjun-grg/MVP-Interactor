@@ -6,7 +6,9 @@ import com.intellij.ide.fileTemplates.FileTemplateUtil;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
-import com.intellij.psi.*;
+import com.intellij.psi.PsiDirectory;
+import com.intellij.psi.PsiElement;
+import com.intellij.psi.util.ClassUtil;
 
 import java.util.Properties;
 
@@ -17,84 +19,88 @@ public class MvpPackage extends AnAction {
 
     @Override
     public void actionPerformed(AnActionEvent e) {
-        MvpPackageDialog.create(new OnListner() {
-            @Override
-            public void OnSuccess(String name, boolean isKotlin, boolean isFragment, boolean createInteractor) {
-                final PsiElement element = e.getData(CommonDataKeys.PSI_ELEMENT);
-                if (element == null)
-                    return;
+        MvpPackageDialog.create((name, isKotlin, isFragment, createInteractor) -> {
+            final PsiElement element = e.getData(CommonDataKeys.PSI_ELEMENT);
+            if (element == null)
+                return;
 
-                PsiDirectory directory = (PsiDirectory) element;
-                PsiDirectory subDirectory = FileUtils.makeDir(directory, name);
+            PsiDirectory directory = (PsiDirectory) element;
 
-                if (subDirectory == null)
-                    return;
+            FileUtils.makeDir(directory, name, new OnFinishListner<PsiDirectory>() {
+                @Override
+                public void onFinished(PsiDirectory result) {
+                    createPackage(result, isFragment, name, createInteractor, isKotlin);
+                }
 
-                if (isKotlin)
-                    createMVPKotlin(subDirectory, name, isFragment, createInteractor);
-                else
-                    createMVPJava(subDirectory, name, isFragment, createInteractor);
-            }
+                @Override
+                public void onFailed(String msg) {
+                    System.out.println(msg);
+                }
+            });
         });
     }
 
-    private void createMVPKotlin(PsiDirectory directory, String name, boolean isFragment, boolean makeInteractor) {
-        FileTemplate activityTemplate;
-        FileTemplate presenterTemplate;
-        FileTemplate viewTemplate;
-        FileTemplate interactorTemplate = null;
-        String _name = name;
-        if (isFragment) {
-            activityTemplate = FileTemplateManager.getDefaultInstance().getInternalTemplate("MVPFragment.kt");
-            _name += "Fragment";
-        } else {
-            activityTemplate = FileTemplateManager.getDefaultInstance().getInternalTemplate("MVPActivity.kt");
-            _name += "Activity";
-        }
-        presenterTemplate = FileTemplateManager.getDefaultInstance().getInternalTemplate("PresenterTemplate.kt");
-        viewTemplate = FileTemplateManager.getDefaultInstance().getInternalTemplate("ViewTemplate.kt");
-        if (makeInteractor)
-            interactorTemplate = FileTemplateManager.getDefaultInstance().getInternalTemplate("InteractorTemplate.kt");
+    private void createPackage(PsiDirectory subDirectory, boolean isFragment, String name,
+                               boolean createInteractor, boolean isKotlin) {
+        PsiDirectory javaDirectory = ClassUtil.sourceRoot(subDirectory);
+        PsiDirectory srcDirectory = javaDirectory.getParent().findSubdirectory("res").findSubdirectory("layout");
 
-        Properties defaultProperties = FileTemplateManager.getInstance(directory.getProject()).getDefaultProperties();
-        defaultProperties.setProperty("PACKAGE", name);
+        Properties defaultProperties = FileTemplateManager.getInstance(subDirectory.getProject()).getDefaultProperties();
+
         try {
-            FileTemplateUtil.createFromTemplate(activityTemplate, _name, defaultProperties, directory);
-            FileTemplateUtil.createFromTemplate(presenterTemplate, name + "Presenter", defaultProperties, directory);
-            FileTemplateUtil.createFromTemplate(viewTemplate, name + "View", defaultProperties, directory);
-            if (interactorTemplate != null)
-                FileTemplateUtil.createFromTemplate(interactorTemplate, name + "Interactor", defaultProperties, directory);
-        } catch (Exception e1) {
-            e1.printStackTrace();
-            System.out.println("Ola" + e1.getMessage());
+            createLayout(srcDirectory, defaultProperties, isFragment, getName(isFragment, name));
+            if (isKotlin)
+                createMVPKotlin(subDirectory, defaultProperties, name, isFragment, createInteractor);
+            else
+                createMVPJava(subDirectory, defaultProperties, name, isFragment, createInteractor);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
-    private void createMVPJava(PsiDirectory directory, String name, boolean isFragment, boolean makeInteractor) {
-        FileTemplate activityTemplate;
-        FileTemplate presenterTemplate;
-        FileTemplate viewTemplate;
-        FileTemplate interactorTemplate = null;
+    private void createLayout(PsiDirectory srcDirectory, Properties defaultProperties, boolean isFragment, String templateName) throws Exception {
         if (isFragment)
-            activityTemplate = FileTemplateManager.getDefaultInstance().getInternalTemplate("MVPFragment.java");
+            createFileFromTemplate(templateName, "FragmentTemplate.xml", defaultProperties, srcDirectory);
         else
-            activityTemplate = FileTemplateManager.getDefaultInstance().getInternalTemplate("MVPActivity.java");
-        presenterTemplate = FileTemplateManager.getDefaultInstance().getInternalTemplate("PresenterTemplate.java");
-        viewTemplate = FileTemplateManager.getDefaultInstance().getInternalTemplate("ViewTemplate.java");
+            createFileFromTemplate(templateName, "ActivityTemplate.xml", defaultProperties, srcDirectory);
+    }
+
+    private void createMVPKotlin(PsiDirectory directory, Properties defaultProperties, String name, boolean isFragment,
+                                 boolean makeInteractor) throws Exception {
+        defaultProperties.setProperty("PACKAGE", name);
+        defaultProperties.setProperty("LAYOUT_NAME", getName(isFragment, name));
+        if (isFragment)
+            createFileFromTemplate(name + "Fragment", "MVPFragment.kt", defaultProperties, directory);
+        else
+            createFileFromTemplate(name + "Activity", "MVPActivity.kt", defaultProperties, directory);
+        createFileFromTemplate(name + "Presenter", "PresenterTemplate.kt", defaultProperties, directory);
+        createFileFromTemplate(name + "View", "ViewTemplate.kt", defaultProperties, directory);
+
         if (makeInteractor)
-            interactorTemplate = FileTemplateManager.getDefaultInstance().getInternalTemplate("InteractorTemplate.java");
+            createFileFromTemplate(name + "Interactor", "InteractorTemplate.kt", defaultProperties, directory);
+    }
 
-
-        Properties defaultProperties = FileTemplateManager.getInstance(directory.getProject()).getDefaultProperties();
-        try {
-            FileTemplateUtil.createFromTemplate(activityTemplate, name, defaultProperties, directory);
-            FileTemplateUtil.createFromTemplate(presenterTemplate, name, defaultProperties, directory);
-            FileTemplateUtil.createFromTemplate(viewTemplate, name, defaultProperties, directory);
-            if (interactorTemplate != null)
-                FileTemplateUtil.createFromTemplate(interactorTemplate, name, defaultProperties, directory);
-        } catch (Exception e1) {
-            e1.printStackTrace();
-            System.out.println("Ola" + e1.getMessage());
+    private void createMVPJava(PsiDirectory directory, Properties defaultProperties, String name, boolean isFragment,
+                               boolean makeInteractor) throws Exception {
+        defaultProperties.setProperty("LAYOUT_NAME", getName(isFragment, name));
+        if (isFragment) {
+            createFileFromTemplate(name, "MVPFragment.java", defaultProperties, directory);
+        } else {
+            createFileFromTemplate(name, "MVPActivity.java", defaultProperties, directory);
         }
+        createFileFromTemplate(name, "PresenterTemplate.java", defaultProperties, directory);
+        createFileFromTemplate(name, "ViewTemplate.java", defaultProperties, directory);
+
+        if (makeInteractor)
+            createFileFromTemplate(name, "InteractorTemplate.java", defaultProperties, directory);
+    }
+
+    private String getName(boolean isFragment, String name) {
+        return isFragment ? "fragment_" + name.toLowerCase() : "activity_" + name.toLowerCase();
+    }
+
+    private void createFileFromTemplate(String name, String templateName, Properties defaultProperties, PsiDirectory directory) throws Exception {
+        FileTemplate template = FileTemplateManager.getDefaultInstance().getInternalTemplate(templateName);
+        FileTemplateUtil.createFromTemplate(template, name, defaultProperties, directory);
     }
 }
