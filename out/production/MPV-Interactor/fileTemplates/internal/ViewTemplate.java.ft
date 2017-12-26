@@ -1,0 +1,6 @@
+package ${PACKAGE_NAME};
+
+import com.hannesdorfmann.mosby.mvp.MvpView;
+
+public interface ${NAME}View extends MvpView {
+}

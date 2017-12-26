@@ -1,0 +1,14 @@
+package ${PACKAGE_NAME};
+
+import android.os.Bundle
+
+import com.hannesdorfmann.mosby.mvp.MvpActivity
+
+class ${NAME} : MvpActivity<${PACKAGE}View,${PACKAGE}Presenter>(), ${PACKAGE}View {
+
+    public override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
+
+    override fun createPresenter() = ${PACKAGE}Presenter()
+}
