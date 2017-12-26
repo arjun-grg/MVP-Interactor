@@ -11,13 +11,13 @@ import com.hannesdorfmann.mosby.mvp.MvpFragment;
 
 #parse("File Header.java")
 class ${NAME} : MvpFragment<${PACKAGE}View,${PACKAGE}Presenter>(), ${PACKAGE}View{
-    private var view:View?=null
+    private var mvpView:View?=null
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-            if(view==null){
-                view=inflater?.inflate(R.layout.fragment_${PACKAGE},container,false)
+            if(mvpView==null){
+                mvpView=inflater?.inflate(R.layout.fragment_${PACKAGE},container,false)
             }
-            return view
+            return mvpView
     }
 
     override fun createPresenter()= ${PACKAGE}Presenter()
