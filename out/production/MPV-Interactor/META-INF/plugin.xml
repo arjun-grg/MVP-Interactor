@@ -2,16 +2,15 @@
     <id>com.wongel.MVPGenerator</id>
     <name>MVP-Interactor Generator</name>
     <version>1.0</version>
-    <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+    <vendor email="tsering.wongel@gmail.com" url="">Tsering Wongel</vendor>
 
     <description><![CDATA[
-      Enter short description for your plugin here.<br>
-      <em>most HTML tags may be used</em>
+      This plugin is used to create MVP package with Presenter,view and interactor both in java/kotlin.<br>
+      This plugin uses Mosby as default MVP handler.
     ]]></description>
 
     <change-notes><![CDATA[
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>
+
     ]]>
     </change-notes>
 
