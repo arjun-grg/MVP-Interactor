@@ -53,7 +53,7 @@ public class MvpPackageDialog extends JDialog {
     private void onOK() {
         String name=txtName.getText();
         if (TextUtils.isEmpty(name)){
-            txtError.setText("Name cannot be empty");
+            txtError.setText("Package Name cannot be empty");
             return;
         }
         boolean isFragment=checkBox1.isSelected();
@@ -64,12 +64,12 @@ public class MvpPackageDialog extends JDialog {
     }
 
     private void onCancel() {
-        // add your code here if necessary
         dispose();
     }
 
     public static void create(OnListner listner) {
         MvpPackageDialog dialog = new MvpPackageDialog(listner);
+        dialog.setLocationRelativeTo(null);
         dialog.pack();
         dialog.setVisible(true);
     }
