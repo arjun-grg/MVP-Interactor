@@ -15,9 +15,9 @@ public class MvpPackageDialog extends JDialog {
     private JTextField txtName;
     private JLabel txtError;
     private JCheckBox chkKotlin;
-    private OnListner listner;
+    private OnDialogListner listner;
 
-    public MvpPackageDialog(OnListner listner) {
+    public MvpPackageDialog(OnDialogListner listner) {
         this.listner=listner;
         setContentPane(contentPane);
         setModal(true);
@@ -51,6 +51,22 @@ public class MvpPackageDialog extends JDialog {
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
+    public static MvpPackageDialog create(OnDialogListner listner) {
+        MvpPackageDialog dialog = new MvpPackageDialog(listner);
+        final Toolkit toolkit = Toolkit.getDefaultToolkit();
+        final Dimension screenSize = toolkit.getScreenSize();
+        final int x = (screenSize.width - dialog.getWidth()) / 2;
+        final int y = (screenSize.height - dialog.getHeight()) / 2;
+        dialog.setLocation(x, y);
+        dialog.pack();
+        dialog.setVisible(true);
+        return dialog;
+    }
+
+    private void onCancel() {
+        dispose();
+    }
+
     private void onOK() {
         String name=txtName.getText();
         if (TextUtils.isEmpty(name)){
@@ -60,22 +76,11 @@ public class MvpPackageDialog extends JDialog {
         boolean isFragment=checkBox1.isSelected();
         boolean makeInterator=checkBox2.isSelected();
         boolean isKotlin=chkKotlin.isSelected();
-        listner.OnSuccess(name,isKotlin,isFragment,makeInterator);
-        dispose();
+
+        listner.OnSuccess(this,new MvpModule(name, isKotlin, isFragment, makeInterator));
     }
 
-    private void onCancel() {
-        dispose();
-    }
-
-    public static void create(OnListner listner) {
-        MvpPackageDialog dialog = new MvpPackageDialog(listner);
-        final Toolkit toolkit = Toolkit.getDefaultToolkit();
-        final Dimension screenSize = toolkit.getScreenSize();
-        final int x = (screenSize.width - dialog.getWidth()) / 2;
-        final int y = (screenSize.height - dialog.getHeight()) / 2;
-        dialog.setLocation(x, y);
-        dialog.pack();
-        dialog.setVisible(true);
+    public void setError(String msg) {
+        txtError.setText(msg);
     }
 }

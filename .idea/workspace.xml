@@ -2,13 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="295f72b4-0856-4bcf-8512-e2fd9e21c6d5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/fileTemplates/internal/MVPActivity.java.ft" afterPath="$PROJECT_DIR$/resources/fileTemplates/internal/MVPActivity.java.ft" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/fileTemplates/internal/MVPActivity.kt.ft" afterPath="$PROJECT_DIR$/resources/fileTemplates/internal/MVPActivity.kt.ft" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/fileTemplates/internal/MVPFragment.java.ft" afterPath="$PROJECT_DIR$/resources/fileTemplates/internal/MVPFragment.java.ft" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/fileTemplates/internal/MVPFragment.kt.ft" afterPath="$PROJECT_DIR$/resources/fileTemplates/internal/MVPFragment.kt.ft" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/fileTemplates/internal/PresenterTemplate.kt.ft" afterPath="$PROJECT_DIR$/resources/fileTemplates/internal/PresenterTemplate.kt.ft" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/fileTemplates/internal/ViewTemplate.kt.ft" afterPath="$PROJECT_DIR$/resources/fileTemplates/internal/ViewTemplate.kt.ft" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MPV-Interactor/com/wongel/MVPGenerator/MvpPackage$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/MPV-Interactor/com/wongel/MVPGenerator/OnListner.class" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/wongel/MVPGenerator/OnListner.java" afterPath="$PROJECT_DIR$/src/com/wongel/MVPGenerator/OnDialogListner.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MPV-Interactor/com/wongel/MVPGenerator/MvpPackage$1.class" afterPath="$PROJECT_DIR$/out/production/MPV-Interactor/com/wongel/MVPGenerator/MvpPackage$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MPV-Interactor/com/wongel/MVPGenerator/MvpPackage.class" afterPath="$PROJECT_DIR$/out/production/MPV-Interactor/com/wongel/MVPGenerator/MvpPackage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MPV-Interactor/com/wongel/MVPGenerator/MvpPackageDialog$1.class" afterPath="$PROJECT_DIR$/out/production/MPV-Interactor/com/wongel/MVPGenerator/MvpPackageDialog$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MPV-Interactor/com/wongel/MVPGenerator/MvpPackageDialog$2.class" afterPath="$PROJECT_DIR$/out/production/MPV-Interactor/com/wongel/MVPGenerator/MvpPackageDialog$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MPV-Interactor/com/wongel/MVPGenerator/MvpPackageDialog$3.class" afterPath="$PROJECT_DIR$/out/production/MPV-Interactor/com/wongel/MVPGenerator/MvpPackageDialog$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MPV-Interactor/com/wongel/MVPGenerator/MvpPackageDialog$4.class" afterPath="$PROJECT_DIR$/out/production/MPV-Interactor/com/wongel/MVPGenerator/MvpPackageDialog$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MPV-Interactor/com/wongel/MVPGenerator/MvpPackageDialog.class" afterPath="$PROJECT_DIR$/out/production/MPV-Interactor/com/wongel/MVPGenerator/MvpPackageDialog.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MPV-Interactor/fileTemplates/internal/MVPFragment.kt.ft" afterPath="$PROJECT_DIR$/out/production/MPV-Interactor/fileTemplates/internal/MVPFragment.kt.ft" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/fileTemplates/internal/ActivityTemplate.xml.ft" afterPath="$PROJECT_DIR$/resources/fileTemplates/internal/ActivityTemplate.xml.ft" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/wongel/MVPGenerator/MvpPackage.java" afterPath="$PROJECT_DIR$/src/com/wongel/MVPGenerator/MvpPackage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/wongel/MVPGenerator/MvpPackageDialog.form" afterPath="$PROJECT_DIR$/src/com/wongel/MVPGenerator/MvpPackageDialog.form" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/wongel/MVPGenerator/MvpPackageDialog.java" afterPath="$PROJECT_DIR$/src/com/wongel/MVPGenerator/MvpPackageDialog.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -22,11 +30,46 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MvpPackage.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MvpPackage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/wongel/MVPGenerator/MvpPackage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="113" column="77" lean-forward="false" selection-start-line="113" selection-start-column="77" selection-end-line="113" selection-end-column="77" />
+            <state relative-caret-position="143">
+              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1077#1078#0" expanded="true" />
+                <element signature="e#1149#1150#0" expanded="true" />
+                <element signature="e#1243#1244#0" expanded="true" />
+                <element signature="e#1319#1320#0" expanded="true" />
+                <element signature="e#1472#1473#0" expanded="true" />
+                <element signature="e#1532#1533#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ActivityTemplate.xml.ft" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/fileTemplates/internal/ActivityTemplate.xml.ft">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="40" lean-forward="false" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MvpPackageDialog.form" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/wongel/MVPGenerator/MvpPackageDialog.form">
+          <provider selected="true" editor-type-id="ui-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileUtils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/wongel/MVPGenerator/FileUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="86">
+              <caret line="15" column="23" lean-forward="false" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -34,12 +77,70 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MvpPackageDialog.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MvpModule.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/wongel/MVPGenerator/MvpModule.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="213">
+              <caret line="37" column="5" lean-forward="false" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
+              <folding>
+                <element signature="e#505#506#0" expanded="true" />
+                <element signature="e#532#533#0" expanded="true" />
+                <element signature="e#572#573#0" expanded="true" />
+                <element signature="e#604#605#0" expanded="true" />
+                <element signature="e#639#640#0" expanded="true" />
+                <element signature="e#672#673#0" expanded="true" />
+                <element signature="e#721#722#0" expanded="true" />
+                <element signature="e#758#759#0" expanded="true" />
+                <element signature="e#796#797#0" expanded="true" />
+                <element signature="e#832#833#0" expanded="true" />
+                <element signature="e#891#892#0" expanded="true" />
+                <element signature="e#941#942#0" expanded="true" />
+                <element signature="e#974#975#0" expanded="true" />
+                <element signature="e#1005#1006#0" expanded="true" />
+                <element signature="e#1050#1051#0" expanded="true" />
+                <element signature="e#1083#1084#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MvpPackageDialog.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/wongel/MVPGenerator/MvpPackageDialog.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="726">
-              <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+            <state relative-caret-position="15">
+              <caret line="50" column="105" lean-forward="true" selection-start-line="50" selection-start-column="105" selection-end-line="50" selection-end-column="105" />
+              <folding>
+                <element signature="e#793#794#0" expanded="true" />
+                <element signature="e#831#832#0" expanded="true" />
+                <element signature="e#2648#2649#0" expanded="true" />
+                <element signature="e#2685#2686#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OnDialogListner.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/wongel/MVPGenerator/OnDialogListner.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="35" lean-forward="false" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MvpGenerator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/wongel/MVPGenerator/MvpGenerator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-428">
+              <caret line="83" column="37" lean-forward="false" selection-start-line="83" selection-start-column="37" selection-end-line="83" selection-end-column="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#773#774#0" expanded="true" />
+                <element signature="e#811#812#0" expanded="true" />
+                <element signature="e#6394#6395#0" expanded="true" />
+                <element signature="e#6434#6435#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -50,10 +151,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JViewTemplate" />
-        <option value="Class" />
         <option value="Action" />
         <option value="Kotlin File" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -102,19 +203,23 @@
         <option value="$PROJECT_DIR$/resources/fileTemplates/internal/ViewTemplate.java.ft" />
         <option value="$PROJECT_DIR$/resources/fileTemplates/internal/InteractorTemplate.java.ft" />
         <option value="$PROJECT_DIR$/resources/fileTemplates/internal/PresenterTemplate.java.ft" />
-        <option value="$PROJECT_DIR$/resources/fileTemplates/internal/ActivityTemplate.xml.ft" />
         <option value="$PROJECT_DIR$/resources/fileTemplates/internal/FragmentTemplate.xml.ft" />
         <option value="$PROJECT_DIR$/src/com/wongel/MVPGenerator/OnFinishListner.java" />
         <option value="$PROJECT_DIR$/src/com/wongel/MVPGenerator/FileUtils.java" />
-        <option value="$PROJECT_DIR$/src/com/wongel/MVPGenerator/MvpPackageDialog.form" />
-        <option value="$PROJECT_DIR$/src/com/wongel/MVPGenerator/MvpPackageDialog.java" />
         <option value="$PROJECT_DIR$/resources/fileTemplates/internal/MVPFragment.java.ft" />
-        <option value="$PROJECT_DIR$/resources/fileTemplates/internal/MVPFragment.kt.ft" />
         <option value="$PROJECT_DIR$/resources/fileTemplates/internal/PresenterTemplate.kt.ft" />
         <option value="$PROJECT_DIR$/resources/fileTemplates/internal/ViewTemplate.kt.ft" />
         <option value="$PROJECT_DIR$/resources/fileTemplates/internal/MVPActivity.kt.ft" />
         <option value="$PROJECT_DIR$/resources/fileTemplates/internal/MVPActivity.java.ft" />
+        <option value="$PROJECT_DIR$/resources/fileTemplates/internal/MVPFragment.kt.ft" />
+        <option value="$PROJECT_DIR$/src/com/wongel/MVPGenerator/OnListner.java" />
+        <option value="$PROJECT_DIR$/src/com/wongel/MVPGenerator/MvpModule.java" />
+        <option value="$PROJECT_DIR$/src/com/wongel/MVPGenerator/MvpGenerator.java" />
+        <option value="$PROJECT_DIR$/src/com/wongel/MVPGenerator/OnDialogListner.java" />
         <option value="$PROJECT_DIR$/src/com/wongel/MVPGenerator/MvpPackage.java" />
+        <option value="$PROJECT_DIR$/resources/fileTemplates/internal/ActivityTemplate.xml.ft" />
+        <option value="$PROJECT_DIR$/src/com/wongel/MVPGenerator/MvpPackageDialog.form" />
+        <option value="$PROJECT_DIR$/src/com/wongel/MVPGenerator/MvpPackageDialog.java" />
       </list>
     </option>
   </component>
@@ -645,19 +750,19 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4218978" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39854014" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.124087594" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4978102" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28675282" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28675282" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329927" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.08175182" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5737226" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -701,14 +806,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/wongel/MVPGenerator/MvpPackage.java</url>
-          <line>130</line>
-          <properties />
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="24" />
     </breakpoint-manager>
     <watches-manager />
@@ -718,24 +815,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/MPV-Interactor.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Test.java" />
-    <entry file="file://$PROJECT_DIR$/src/MvpActivityDialog.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/wongel/MVPGenerator/OnListner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="31" lean-forward="true" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Applications/Android Studio.app/Contents/jre/jdk/Contents/Home/jre/lib/rt.jar!/java/util/Properties.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-8881">
@@ -795,14 +874,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/fileTemplates/internal/ActivityTemplate.xml.ft">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="22" lean-forward="false" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/openapi.jar!/com/intellij/psi/PsiDirectory.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -844,11 +915,6 @@
           <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/wongel/MVPGenerator/MvpPackageDialog.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
       </provider>
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/openapi.jar!/com/intellij/psi/xml/XmlTag.class">
@@ -971,16 +1037,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/wongel/MVPGenerator/FileUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/openapi.jar!/com/intellij/psi/PsiClass.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1021,30 +1077,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/fileTemplates/internal/MVPFragment.kt.ft">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="23" lean-forward="true" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/fileTemplates/internal/MVPFragment.java.ft">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="15" lean-forward="false" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/fileTemplates/internal/MVPActivity.kt.ft">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="18" lean-forward="true" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/fileTemplates/internal/MVPActivity.java.ft">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -1077,10 +1109,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/fileTemplates/internal/PresenterTemplate.kt.ft">
+    <entry file="file://$PROJECT_DIR$/resources/fileTemplates/internal/InteractorTemplate.kt.ft">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
-          <caret line="3" column="53" lean-forward="true" selection-start-line="3" selection-start-column="53" selection-end-line="3" selection-end-column="53" />
+          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/fileTemplates/internal/MVPFragment.kt.ft">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="29" lean-forward="false" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -1093,28 +1133,136 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/fileTemplates/internal/InteractorTemplate.kt.ft">
+    <entry file="file://$PROJECT_DIR$/resources/fileTemplates/internal/MVPActivity.kt.ft">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        <state relative-caret-position="75">
+          <caret line="5" column="18" lean-forward="true" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/wongel/MVPGenerator/MvpPackageDialog.java">
+    <entry file="file://$PROJECT_DIR$/resources/fileTemplates/internal/MVPFragment.java.ft">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="726">
-          <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+        <state relative-caret-position="135">
+          <caret line="9" column="15" lean-forward="false" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="15" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/fileTemplates/internal/PresenterTemplate.kt.ft">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="53" lean-forward="true" selection-start-line="3" selection-start-column="53" selection-end-line="3" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wongel/MVPGenerator/MvpGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-428">
+          <caret line="83" column="37" lean-forward="false" selection-start-line="83" selection-start-column="37" selection-end-line="83" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#773#774#0" expanded="true" />
+            <element signature="e#811#812#0" expanded="true" />
+            <element signature="e#6394#6395#0" expanded="true" />
+            <element signature="e#6434#6435#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wongel/MVPGenerator/MvpModule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="37" column="5" lean-forward="false" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
+          <folding>
+            <element signature="e#505#506#0" expanded="true" />
+            <element signature="e#532#533#0" expanded="true" />
+            <element signature="e#572#573#0" expanded="true" />
+            <element signature="e#604#605#0" expanded="true" />
+            <element signature="e#639#640#0" expanded="true" />
+            <element signature="e#672#673#0" expanded="true" />
+            <element signature="e#721#722#0" expanded="true" />
+            <element signature="e#758#759#0" expanded="true" />
+            <element signature="e#796#797#0" expanded="true" />
+            <element signature="e#832#833#0" expanded="true" />
+            <element signature="e#891#892#0" expanded="true" />
+            <element signature="e#941#942#0" expanded="true" />
+            <element signature="e#974#975#0" expanded="true" />
+            <element signature="e#1005#1006#0" expanded="true" />
+            <element signature="e#1050#1051#0" expanded="true" />
+            <element signature="e#1083#1084#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Applications/Android Studio.app/Contents/jre/jdk/Contents/Home/jre/lib/rt.jar!/java/awt/Window.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="484" column="16" lean-forward="false" selection-start-line="484" selection-start-column="16" selection-end-line="484" selection-end-column="16" />
+          <folding>
+            <element signature="e#15729#15730#0" expanded="true" />
+            <element signature="e#15761#15762#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wongel/MVPGenerator/OnDialogListner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="35" lean-forward="false" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wongel/MVPGenerator/FileUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="15" column="23" lean-forward="false" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/wongel/MVPGenerator/MvpPackage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="113" column="77" lean-forward="false" selection-start-line="113" selection-start-column="77" selection-end-line="113" selection-end-column="77" />
+        <state relative-caret-position="143">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1077#1078#0" expanded="true" />
+            <element signature="e#1149#1150#0" expanded="true" />
+            <element signature="e#1243#1244#0" expanded="true" />
+            <element signature="e#1319#1320#0" expanded="true" />
+            <element signature="e#1472#1473#0" expanded="true" />
+            <element signature="e#1532#1533#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/fileTemplates/internal/ActivityTemplate.xml.ft">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="40" lean-forward="false" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wongel/MVPGenerator/MvpPackageDialog.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/wongel/MVPGenerator/MvpPackageDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="50" column="105" lean-forward="true" selection-start-line="50" selection-start-column="105" selection-end-line="50" selection-end-column="105" />
+          <folding>
+            <element signature="e#793#794#0" expanded="true" />
+            <element signature="e#831#832#0" expanded="true" />
+            <element signature="e#2648#2649#0" expanded="true" />
+            <element signature="e#2685#2686#0" expanded="true" />
           </folding>
         </state>
       </provider>
