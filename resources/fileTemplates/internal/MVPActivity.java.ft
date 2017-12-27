@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 
 import com.hannesdorfmann.mosby3.mvp.MvpActivity;
+import ${R_PATH}.R;
 
 #parse("File Header.java")
 public class ${NAME}Activity extends MvpActivity<${NAME}View,${NAME}Presenter> implements ${NAME}View{

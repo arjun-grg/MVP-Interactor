@@ -3,6 +3,7 @@ package com.wongel.MVPGenerator;
 import org.apache.http.util.TextUtils;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 
 public class MvpPackageDialog extends JDialog {
@@ -69,7 +70,11 @@ public class MvpPackageDialog extends JDialog {
 
     public static void create(OnListner listner) {
         MvpPackageDialog dialog = new MvpPackageDialog(listner);
-        dialog.setLocationRelativeTo(null);
+        final Toolkit toolkit = Toolkit.getDefaultToolkit();
+        final Dimension screenSize = toolkit.getScreenSize();
+        final int x = (screenSize.width - dialog.getWidth()) / 2;
+        final int y = (screenSize.height - dialog.getHeight()) / 2;
+        dialog.setLocation(x, y);
         dialog.pack();
         dialog.setVisible(true);
     }

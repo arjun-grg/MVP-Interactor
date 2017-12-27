@@ -1,12 +1,12 @@
-package ${PACKAGE_NAME};
+package ${PACKAGE_NAME}
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.support.annotation.NonNull;
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 
-import com.hannesdorfmann.mosby3.mvp.MvpFragment;
+import com.hannesdorfmann.mosby3.mvp.MvpFragment
+import ${R_PATH}.R
 
 #parse("File Header.java")
 class ${NAME} : MvpFragment<${PACKAGE}View,${PACKAGE}Presenter>(), ${PACKAGE}View{
