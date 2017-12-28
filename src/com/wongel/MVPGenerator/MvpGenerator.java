@@ -36,10 +36,20 @@ class MvpGenerator {
     public void createPackage(PsiDirectory subDirectory,MvpModule mvpModule) {
         Properties defaultProperties = FileTemplateManager.getInstance(subDirectory.getProject()).getDefaultProperties();
 
-        PsiDirectory srcDirectory = ClassUtil.sourceRoot(subDirectory).getParent().findSubdirectory("res").findSubdirectory("layout");
+        PsiDirectory srcDirectory;
+        srcDirectory = ClassUtil.sourceRoot(subDirectory).getParent().findSubdirectory("res").findSubdirectory("layout");
+
+        if (srcDirectory == null)
+            srcDirectory = ClassUtil.sourceRoot(subDirectory).getParent().findSubdirectory("res").findSubdirectory("layouts");
 
         try {
             createLayout(srcDirectory, defaultProperties, mvpModule.isFragment(), getName(mvpModule.isFragment(), mvpModule.getName()));
+        } catch (Exception e) {
+            e.printStackTrace();
+            listner.onFailed(e.getMessage());
+        }
+
+        try {
             if (mvpModule.isKotlin())
                 createMVPKotlin(subDirectory, defaultProperties, mvpModule);
             else

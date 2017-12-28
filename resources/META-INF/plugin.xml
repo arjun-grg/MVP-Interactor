@@ -5,30 +5,24 @@
     <vendor email="tsering.wongel@gmail.com" url="">Tsering Wongel</vendor>
 
     <description><![CDATA[
+    Mvp Interactor Generator:
       This plugin is used to create MVP package with Presenter,view and interactor both in java/kotlin.<br>
-      This plugin uses Mosby as default MVP handler.
+      This plugin uses Mosby "version-mosby3" as default MVP handler.<br>
     ]]></description>
 
     <change-notes><![CDATA[
-
     ]]>
     </change-notes>
 
-    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
     <idea-version since-build="145.0"/>
-
-    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
-         on how to target different products -->
-    <!-- uncomment to enable plugin in all products
-    <depends>com.intellij.modules.lang</depends>
-    -->
 
     <extensions defaultExtensionNs="com.intellij">
         <!-- Add your extensions here -->
     </extensions>
 
     <actions>
-        <action id="MvpPackage.id" class="com.wongel.MVPGenerator.MvpPackage" text="New Mvp Package" description="Create Mvp package">
+        <action id="MvpPackage.id" class="com.wongel.MVPGenerator.MvpPackage"
+                text="New Mvp Package" description="New Mvp Package" >
             <add-to-group group-id="NewGroup" anchor="first"/>
         </action>
     </actions>
