@@ -1,7 +1,7 @@
 #if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
 #parse("File Header.java")
 
-import com.hannesdorfmann.mosby3.mvp.MvpBasePresenter
+import com.hannesdorfmann.${MOSBY_TYPE}.mvp.MvpBasePresenter
 
 class ${NAME} : MvpBasePresenter<${PACKAGE}View>(){
 }

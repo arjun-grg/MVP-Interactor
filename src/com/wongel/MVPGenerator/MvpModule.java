@@ -59,5 +59,5 @@ class MvpModule {
         this.mosbyType = mosbyType;
     }
 
-    enum MVP_TYPE {None, Mosby1, Mosby3}
+    enum MVP_TYPE {None, mosby1, mosby3}
 }

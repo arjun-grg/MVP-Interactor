@@ -63,6 +63,7 @@ class MvpGenerator {
     public void createMVP(PsiDirectory directory, Properties defaultProperties, MvpModule mvpModule) throws Exception {
         defaultProperties.setProperty("PACKAGE", mvpModule.getName());
         defaultProperties.setProperty("LAYOUT_NAME", getName(mvpModule.isFragment(), mvpModule.getName()));
+        defaultProperties.setProperty("MOSBY_TYPE", mvpModule.getMosbyType().toString());
         defaultProperties.setProperty("R_PATH", "import " + getProjectPackge(directory) + ".R");
 
         createClass(getList(mvpModule), defaultProperties, directory);

@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.annotation.NonNull;
 
-import com.hannesdorfmann.mosby3.mvp.MvpFragment;
+import com.hannesdorfmann.${MOSBY_TYPE}.mvp.MvpFragment;
 ${R_PATH};
 
 #parse("File Header.java")

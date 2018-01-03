@@ -86,9 +86,9 @@ public class MvpPackageDialog extends JDialog {
         MvpModule.MVP_TYPE mosbyType = MvpModule.MVP_TYPE.None;
 
         if (rdbMosby1.isSelected())
-            mosbyType = MvpModule.MVP_TYPE.Mosby1;
+            mosbyType = MvpModule.MVP_TYPE.mosby1;
         else if (rdbMosby3.isSelected())
-            mosbyType = MvpModule.MVP_TYPE.Mosby3;
+            mosbyType = MvpModule.MVP_TYPE.mosby3;
 
         listner.OnSuccess(this, new MvpModule(name, isFragment, makeInterator, isKotlin, mosbyType));
     }
