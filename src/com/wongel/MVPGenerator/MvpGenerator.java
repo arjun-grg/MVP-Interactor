@@ -13,7 +13,10 @@ import com.intellij.psi.util.ClassUtil;
 import com.intellij.psi.xml.XmlFile;
 import com.intellij.psi.xml.XmlTag;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
+import java.util.Set;
 
 /**
  * Created by tseringwongelgurung on 12/27/17.
@@ -26,74 +29,60 @@ class MvpGenerator {
         this.listner = listner;
     }
 
-    public void createLayout(PsiDirectory srcDirectory, Properties defaultProperties, boolean isFragment, String templateName) throws Exception {
-        if (isFragment)
-            createFileFromTemplate(templateName, "FragmentTemplate.xml", defaultProperties, srcDirectory);
-        else
-            createFileFromTemplate(templateName, "ActivityTemplate.xml", defaultProperties, srcDirectory);
-    }
-
-    public void createPackage(PsiDirectory subDirectory,MvpModule mvpModule) {
+    public void createPackage(PsiDirectory subDirectory, MvpModule mvpModule) {
         Properties defaultProperties = FileTemplateManager.getInstance(subDirectory.getProject()).getDefaultProperties();
 
+        try {
+            createLayout(subDirectory, defaultProperties, mvpModule.isFragment(), getName(mvpModule.isFragment(), mvpModule.getName()));
+        } catch (Exception e) {
+            e.printStackTrace();
+            listner.onFailed(e.getMessage());
+        }
+
+        try {
+            createMVP(subDirectory, defaultProperties, mvpModule);
+        } catch (Exception e) {
+            e.printStackTrace();
+            listner.onFailed(e.getMessage());
+        }
+    }
+
+    public void createLayout(PsiDirectory subDirectory, Properties defaultProperties, boolean isFragment, String templateName) throws Exception {
         PsiDirectory srcDirectory;
         srcDirectory = ClassUtil.sourceRoot(subDirectory).getParent().findSubdirectory("res").findSubdirectory("layout");
 
         if (srcDirectory == null)
             srcDirectory = ClassUtil.sourceRoot(subDirectory).getParent().findSubdirectory("res").findSubdirectory("layouts");
 
-        try {
-            createLayout(srcDirectory, defaultProperties, mvpModule.isFragment(), getName(mvpModule.isFragment(), mvpModule.getName()));
-        } catch (Exception e) {
-            e.printStackTrace();
-            listner.onFailed(e.getMessage());
-        }
-
-        try {
-            if (mvpModule.isKotlin())
-                createMVPKotlin(subDirectory, defaultProperties, mvpModule);
-            else
-                createMVPJava(subDirectory, defaultProperties, mvpModule);
-        } catch (Exception e) {
-            e.printStackTrace();
-            listner.onFailed(e.getMessage());
-        }
+        if (isFragment)
+            createFileFromTemplate(templateName, "FragmentTemplate.xml", defaultProperties, srcDirectory);
+        else
+            createFileFromTemplate(templateName, "ActivityTemplate.xml", defaultProperties, srcDirectory);
     }
 
-    public void createMVPJava(PsiDirectory directory, Properties defaultProperties,MvpModule mvpModule) throws Exception {
-        defaultProperties.setProperty("LAYOUT_NAME", getName(mvpModule.isKotlin(), mvpModule.getName()));
-        defaultProperties.setProperty("R_PATH", getProjectPackge(directory));
-        if (mvpModule.isFragment()) {
-            createFileFromTemplate(mvpModule.getName(), "MVPFragment.java", defaultProperties, directory);
-        } else {
-            PsiClassImpl file = (PsiClassImpl) createFileFromTemplate(mvpModule.getName(), "MVPActivity.java", defaultProperties, directory);
-            registerActivity(getManifest(directory), getCreatedPacakge(file));
-        }
-        createFileFromTemplate(mvpModule.getName(), "PresenterTemplate.java", defaultProperties, directory);
-        createFileFromTemplate(mvpModule.getName(), "ViewTemplate.java", defaultProperties, directory);
-
-        if (mvpModule.hasInteractor())
-            createFileFromTemplate(mvpModule.getName(), "InteractorTemplate.java", defaultProperties, directory);
-
-        onFinish();
-    }
-
-    public void createMVPKotlin(PsiDirectory directory, Properties defaultProperties,MvpModule mvpModule) throws Exception {
+    public void createMVP(PsiDirectory directory, Properties defaultProperties, MvpModule mvpModule) throws Exception {
         defaultProperties.setProperty("PACKAGE", mvpModule.getName());
         defaultProperties.setProperty("LAYOUT_NAME", getName(mvpModule.isFragment(), mvpModule.getName()));
-        defaultProperties.setProperty("R_PATH", getProjectPackge(directory));
-        if (mvpModule.isFragment())
-            createFileFromTemplate(mvpModule.getName() + "Fragment", "MVPFragment.kt", defaultProperties, directory);
-        else {
-            PsiClassImpl file = (PsiClassImpl) createFileFromTemplate(mvpModule.getName() + "Activity", "MVPActivity.kt", defaultProperties, directory);
-            registerActivity(getManifest(directory), getCreatedPacakge(file));
-        }
-        createFileFromTemplate(mvpModule.getName() + "Presenter", "PresenterTemplate.kt", defaultProperties, directory);
-        createFileFromTemplate(mvpModule.getName() + "View", "ViewTemplate.kt", defaultProperties, directory);
+        defaultProperties.setProperty("R_PATH", "import " + getProjectPackge(directory) + ".R");
 
-        if (mvpModule.hasInteractor())
-            createFileFromTemplate(mvpModule.getName() + "Interactor", "InteractorTemplate.kt", defaultProperties, directory);
+        createClass(getList(mvpModule), defaultProperties, directory);
         onFinish();
+    }
+
+    public void createClass(Map<String, String> map, Properties defaultProperties, PsiDirectory directory) throws Exception {
+        Set<String> keys = map.keySet();
+        for (String key : keys) {
+            String val = map.get(key);
+
+            if (val.equals("MVPActivity.java") || val.equals("Activity.java")) {
+                PsiClassImpl file = (PsiClassImpl) createFileFromTemplate(key, val, defaultProperties, directory);
+                registerActivity(getManifest(directory), getCreatedPacakge(file));
+            } else if (val.equals("MVPActivity.kt") || val.equals("Activity.kt")) {
+                PsiClassImpl file = (PsiClassImpl) createFileFromTemplate(key, val, defaultProperties, directory);
+                registerActivity(getManifest(directory), getCreatedPacakge(file));
+            } else
+                createFileFromTemplate(key, val, defaultProperties, directory);
+        }
     }
 
     public void registerActivity(PsiFile manifest, String activityPath) {
@@ -139,6 +128,25 @@ class MvpGenerator {
         XmlFile tag = (XmlFile) manifest;
         String projectPath = tag.getRootTag().getAttribute("package").getValue();
         return projectPath;
+    }
+
+    public Map<String, String> getList(MvpModule mvpModule) {
+        Map<String, String> map = new HashMap<>();
+        String subfix = ".java";
+        if (mvpModule.isKotlin())
+            subfix = ".kt";
+
+        if (mvpModule.isFragment())
+            map.put(mvpModule.getName() + "Fragment", "MVPFragment" + subfix);
+        else
+            map.put(mvpModule.getName() + "Activity", "MVPActivity" + subfix);
+
+        map.put(mvpModule.getName() + "Presenter", "PresenterTemplate" + subfix);
+        map.put(mvpModule.getName() + "View", "ViewTemplate" + subfix);
+
+        if (mvpModule.hasInteractor())
+            map.put(mvpModule.getName() + "Interactor", "InteractorTemplate" + subfix);
+        return map;
     }
 
     private void onFinish(){

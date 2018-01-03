@@ -4,10 +4,10 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 
 import com.hannesdorfmann.mosby3.mvp.MvpActivity;
-import ${R_PATH}.R;
+${R_PATH};
 
 #parse("File Header.java")
-public class ${NAME}Activity extends MvpActivity<${NAME}View,${NAME}Presenter> implements ${NAME}View{
+public class ${NAME} extends MvpActivity<${PACKAGE}View,${PACKAGE}Presenter> implements ${PACKAGE}View{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,7 +16,7 @@ public class ${NAME}Activity extends MvpActivity<${NAME}View,${NAME}Presenter> i
     
     @NonNull
     @Override
-    public ${NAME}Presenter createPresenter() {
-        return new ${NAME}Presenter();
+    public ${PACKAGE}Presenter createPresenter() {
+        return new ${PACKAGE}Presenter();
     }
 }

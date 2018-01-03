@@ -9,12 +9,14 @@ class MvpModule {
     private boolean isFragment;
     private boolean hasInteractor;
     private boolean isKotlin;
+    private String mosbyType;
 
-    public MvpModule(String name, boolean isFragment, boolean hasInteractor, boolean isKotlin) {
+    public MvpModule(String name, boolean isFragment, boolean hasInteractor, boolean isKotlin, String mosbyType) {
         this.name = name;
         this.isFragment = isFragment;
         this.hasInteractor = hasInteractor;
         this.isKotlin = isKotlin;
+        this.mosbyType = mosbyType;
     }
 
     public String getName() {
@@ -47,5 +49,13 @@ class MvpModule {
 
     public void setKotlin(boolean kotlin) {
         isKotlin = kotlin;
+    }
+
+    public String getMosbyType() {
+        return mosbyType;
+    }
+
+    public void setMosbyType(String mosbyType) {
+        this.mosbyType = mosbyType;
     }
 }

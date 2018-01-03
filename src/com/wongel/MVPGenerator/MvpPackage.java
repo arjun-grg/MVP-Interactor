@@ -13,7 +13,7 @@ public class MvpPackage extends AnAction {
 
     @Override
     public void actionPerformed(AnActionEvent e) {
-        OnDialogListner listner = (MvpPackageDialog dialog, MvpModule mvpModule) -> {
+        OnDialogListner listner = (MvpPackageDialog dialog, boolean isMosby, MvpModule mvpModule) -> {
 
             final PsiElement element = e.getData(CommonDataKeys.PSI_ELEMENT);
 
@@ -25,7 +25,7 @@ public class MvpPackage extends AnAction {
             FileUtils.makeDir(directory, mvpModule.getName(), new OnFinishListner<PsiDirectory>() {
                 @Override
                 public void onFinished(PsiDirectory result) {
-                    new MvpGenerator(new OnFinishListner<String>() {
+                    MvpGenerator generator = new MvpGenerator(new OnFinishListner<String>() {
 
                         @Override
                         public void onFinished(String result) {
@@ -36,7 +36,9 @@ public class MvpPackage extends AnAction {
                         public void onFailed(String msg) {
                             dialog.setError(msg);
                         }
-                    }).createPackage(result, mvpModule);
+                    });
+
+                    generator.createPackage(result, mvpModule);
                 }
 
                 @Override

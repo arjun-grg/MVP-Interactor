@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>com.wongel.MVPGenerator</id>
     <name>MVP-Interactor Generator</name>
-    <version>1.1</version>
+    <version>1.0</version>
     <vendor email="tsering.wongel@gmail.com" url="">Tsering Wongel</vendor>
 
     <description><![CDATA[
@@ -11,10 +11,6 @@
     ]]></description>
 
     <change-notes><![CDATA[
-        Bug fixing:<br>
-        -Center aligning and background of create dialog fixed
-        -Create layout while creating acitivity/Fragments
-        -R path added
     ]]>
     </change-notes>
 
