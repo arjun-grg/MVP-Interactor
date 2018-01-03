@@ -7,7 +7,7 @@
     <description><![CDATA[
     Mvp Interactor Generator:
       This plugin is used to create MVP package with Presenter,view and interactor both in java/kotlin.<br>
-      This plugin uses Mosby "version-mosby3" as default MVP handler.<br>
+      This plugin supports Mosby MVP library as well.<br>
     ]]></description>
 
     <change-notes><![CDATA[
