@@ -15,6 +15,8 @@ public class MvpPackageDialog extends JDialog {
     private JTextField txtName;
     private JLabel txtError;
     private JCheckBox chkKotlin;
+    private JCheckBox chkMosby;
+    private JCheckBox chkMosby3;
     private OnDialogListner listner;
 
     public MvpPackageDialog(OnDialogListner listner) {
@@ -76,8 +78,12 @@ public class MvpPackageDialog extends JDialog {
         boolean isFragment=checkBox1.isSelected();
         boolean makeInterator=checkBox2.isSelected();
         boolean isKotlin=chkKotlin.isSelected();
+        String mosbyType = "mosby";
 
-        listner.OnSuccess(this,new MvpModule(name, isKotlin, isFragment, makeInterator));
+        if (checkBox2.isSelected())
+            mosbyType += 3;
+
+        listner.OnSuccess(this, chkMosby.isSelected(), new MvpModule(name, isFragment, makeInterator, isKotlin, mosbyType));
     }
 
     public void setError(String msg) {

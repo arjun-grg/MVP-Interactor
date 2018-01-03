@@ -7,10 +7,10 @@ import android.view.ViewGroup;
 import android.support.annotation.NonNull;
 
 import com.hannesdorfmann.mosby3.mvp.MvpFragment;
-import ${R_PATH}.R;
+${R_PATH};
 
 #parse("File Header.java")
-public class ${NAME}Fragment extends MvpFragment<${NAME}View,${NAME}Presenter> implements ${NAME}View{
+public class ${NAME} extends MvpFragment<${PACKAGE}View,${PACKAGE}Presenter> implements ${PACKAGE}View{
     private View view;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -22,7 +22,7 @@ public class ${NAME}Fragment extends MvpFragment<${NAME}View,${NAME}Presenter> i
     
     @NonNull
     @Override
-    public ${NAME}Presenter createPresenter() {
-        return new ${NAME}Presenter();
+    public ${PACKAGE}Presenter createPresenter() {
+        return new ${PACKAGE}Presenter();
     }
 }

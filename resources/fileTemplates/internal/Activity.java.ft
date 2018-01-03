@@ -4,10 +4,10 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
-import ${R_PATH}.R;
+${R_PATH};
 
 #parse("File Header.java")
-public class ${NAME}Activity extends Activity implements ${NAME}View{
+public class ${NAME} extends Activity implements ${PACKAGE}View{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

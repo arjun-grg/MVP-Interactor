@@ -2,5 +2,5 @@ package ${PACKAGE_NAME};
 
 import com.hannesdorfmann.mosby3.mvp.MvpView;
 
-public interface ${NAME}View extends MvpView {
+public interface ${NAME} extends MvpView {
 }

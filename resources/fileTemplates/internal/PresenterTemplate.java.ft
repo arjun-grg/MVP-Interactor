@@ -3,5 +3,5 @@
 
 import com.hannesdorfmann.mosby3.mvp.MvpBasePresenter;
 
-public class ${NAME}Presenter extends MvpBasePresenter<${NAME}View>{
+public class ${NAME} extends MvpBasePresenter<${PACKAGE}View>{
 }

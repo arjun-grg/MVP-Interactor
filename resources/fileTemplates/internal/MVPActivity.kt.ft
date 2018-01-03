@@ -3,7 +3,7 @@ package ${PACKAGE_NAME};
 import android.os.Bundle
 
 import com.hannesdorfmann.mosby3.mvp.MvpActivity
-import ${R_PATH}.R
+${R_PATH}
 
 class ${NAME} : MvpActivity<${PACKAGE}View,${PACKAGE}Presenter>(), ${PACKAGE}View {
 

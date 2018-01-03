@@ -3,7 +3,7 @@ package ${PACKAGE_NAME};
 import android.app.Activity
 import android.os.Bundle
 
-import ${R_PATH}.R
+${R_PATH}
 
 class ${NAME} : Activity(), ${PACKAGE}View {
 
