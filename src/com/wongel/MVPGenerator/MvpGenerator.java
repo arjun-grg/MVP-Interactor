@@ -8,7 +8,8 @@ import com.intellij.openapi.roots.ProjectRootManager;
 import com.intellij.psi.PsiDirectory;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
-import com.intellij.psi.impl.source.PsiFileImpl;
+import com.intellij.psi.PsiJavaFile;
+import com.intellij.psi.impl.source.PsiClassImpl;
 import com.intellij.psi.util.ClassUtil;
 import com.intellij.psi.xml.XmlFile;
 import com.intellij.psi.xml.XmlTag;
@@ -76,7 +77,7 @@ class MvpGenerator {
             String val = map.get(key);
 
             if (val.equals("MVPActivity.java") || val.equals("Activity.java")) {
-                PsiFileImpl file = (PsiFileImpl) createFileFromTemplate(key, val, defaultProperties, directory);
+                PsiClassImpl file = (PsiClassImpl) createFileFromTemplate(key, val, defaultProperties, directory);
                 registerActivity(getManifest(directory), getCreatedPackage(file));
             } else if (val.equals("MVPActivity.kt") || val.equals("Activity.kt")) {
                 PsiFile file = (PsiFile) createFileFromTemplate(key, val, defaultProperties, directory);
@@ -111,6 +112,11 @@ class MvpGenerator {
         FileTemplate template = FileTemplateManager.getDefaultInstance().getInternalTemplate(templateName);
         PsiElement file = FileTemplateUtil.createFromTemplate(template, name, defaultProperties, directory);
         return file;
+    }
+
+    public String getCreatedPackage(PsiClassImpl file) {
+        String packageName = ((PsiJavaFile) file.getParent()).getPackageName();
+        return packageName + "." + file.getName().replace(".kt", "");
     }
 
     public String getCreatedPackage(PsiFile file) {
@@ -168,6 +174,7 @@ class MvpGenerator {
     }
 
     private void onFinish(){
-        listner.onFinished(null);
+        if (listner != null)
+            listner.onFinished(null);
     }
 }
