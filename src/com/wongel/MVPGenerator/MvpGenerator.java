@@ -13,6 +13,7 @@ import com.intellij.psi.impl.source.PsiClassImpl;
 import com.intellij.psi.util.ClassUtil;
 import com.intellij.psi.xml.XmlFile;
 import com.intellij.psi.xml.XmlTag;
+import org.apache.http.util.TextUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -139,9 +140,12 @@ class MvpGenerator {
     public String getProjectPackge(PsiDirectory directory) {
         PsiFile manifest=getManifest(directory);
 
+        if (manifest == null)
+            return "";
+
         XmlFile tag = (XmlFile) manifest;
         String projectPath = tag.getRootTag().getAttribute("package").getValue();
-        return projectPath;
+        return TextUtils.isEmpty(projectPath) ? "" : projectPath;
     }
 
     public Map<String, String> getList(MvpModule mvpModule) {
