@@ -9,9 +9,9 @@ class MvpModule {
     private boolean isFragment;
     private boolean hasInteractor;
     private boolean isKotlin;
-    private String mosbyType;
+    private MVP_TYPE mosbyType;
 
-    public MvpModule(String name, boolean isFragment, boolean hasInteractor, boolean isKotlin, String mosbyType) {
+    public MvpModule(String name, boolean isFragment, boolean hasInteractor, boolean isKotlin, MVP_TYPE mosbyType) {
         this.name = name;
         this.isFragment = isFragment;
         this.hasInteractor = hasInteractor;
@@ -51,11 +51,13 @@ class MvpModule {
         isKotlin = kotlin;
     }
 
-    public String getMosbyType() {
+    public MVP_TYPE getMosbyType() {
         return mosbyType;
     }
 
-    public void setMosbyType(String mosbyType) {
+    public void setMosbyType(MVP_TYPE mosbyType) {
         this.mosbyType = mosbyType;
     }
+
+    enum MVP_TYPE {None, Mosby1, Mosby3}
 }

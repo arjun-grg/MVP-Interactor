@@ -4,11 +4,11 @@ import com.intellij.ide.fileTemplates.FileTemplate;
 import com.intellij.ide.fileTemplates.FileTemplateManager;
 import com.intellij.ide.fileTemplates.FileTemplateUtil;
 import com.intellij.openapi.command.CommandProcessor;
+import com.intellij.openapi.roots.ProjectRootManager;
 import com.intellij.psi.PsiDirectory;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
-import com.intellij.psi.PsiJavaFile;
-import com.intellij.psi.impl.source.PsiClassImpl;
+import com.intellij.psi.impl.source.PsiFileImpl;
 import com.intellij.psi.util.ClassUtil;
 import com.intellij.psi.xml.XmlFile;
 import com.intellij.psi.xml.XmlTag;
@@ -75,11 +75,11 @@ class MvpGenerator {
             String val = map.get(key);
 
             if (val.equals("MVPActivity.java") || val.equals("Activity.java")) {
-                PsiClassImpl file = (PsiClassImpl) createFileFromTemplate(key, val, defaultProperties, directory);
-                registerActivity(getManifest(directory), getCreatedPacakge(file));
+                PsiFileImpl file = (PsiFileImpl) createFileFromTemplate(key, val, defaultProperties, directory);
+                registerActivity(getManifest(directory), getCreatedPackage(file));
             } else if (val.equals("MVPActivity.kt") || val.equals("Activity.kt")) {
-                PsiClassImpl file = (PsiClassImpl) createFileFromTemplate(key, val, defaultProperties, directory);
-                registerActivity(getManifest(directory), getCreatedPacakge(file));
+                PsiFile file = (PsiFile) createFileFromTemplate(key, val, defaultProperties, directory);
+                registerActivity(getManifest(directory), getCreatedPackage(file));
             } else
                 createFileFromTemplate(key, val, defaultProperties, directory);
         }
@@ -108,13 +108,20 @@ class MvpGenerator {
 
     public PsiElement createFileFromTemplate(String name, String templateName, Properties defaultProperties, PsiDirectory directory) throws Exception {
         FileTemplate template = FileTemplateManager.getDefaultInstance().getInternalTemplate(templateName);
-        PsiElement element = FileTemplateUtil.createFromTemplate(template, name, defaultProperties, directory);
-        return element;
+        PsiElement file = FileTemplateUtil.createFromTemplate(template, name, defaultProperties, directory);
+        return file;
     }
 
-    public String getCreatedPacakge(PsiClassImpl file) {
-        String packageName = ((PsiJavaFile) file.getParent()).getPackageName();
-        return packageName + "." + file.getName();
+    public String getCreatedPackage(PsiFile file) {
+        return getPackageName(file) + "." + file.getName().replace(".kt", "");
+    }
+
+    public String getPackageName(PsiFile file) {
+        PsiDirectory psiDirectory = file.getParent();
+        String packageName = ProjectRootManager.getInstance(file.getProject()).getFileIndex()
+                .getPackageNameByDirectory(psiDirectory.getVirtualFile());
+
+        return packageName;
     }
 
     public PsiFile getManifest(PsiDirectory directory) {
@@ -136,13 +143,23 @@ class MvpGenerator {
         if (mvpModule.isKotlin())
             subfix = ".kt";
 
-        if (mvpModule.isFragment())
-            map.put(mvpModule.getName() + "Fragment", "MVPFragment" + subfix);
-        else
-            map.put(mvpModule.getName() + "Activity", "MVPActivity" + subfix);
+        if (mvpModule.getMosbyType() == MvpModule.MVP_TYPE.None) {
+            if (mvpModule.isFragment())
+                map.put(mvpModule.getName() + "Fragment", "TFragment" + subfix);
+            else
+                map.put(mvpModule.getName() + "Activity", "TActivity" + subfix);
 
-        map.put(mvpModule.getName() + "Presenter", "PresenterTemplate" + subfix);
-        map.put(mvpModule.getName() + "View", "ViewTemplate" + subfix);
+            map.put(mvpModule.getName() + "Presenter", "TPresenterTemplate" + subfix);
+            map.put(mvpModule.getName() + "View", "TViewTemplate" + subfix);
+        } else {
+            if (mvpModule.isFragment())
+                map.put(mvpModule.getName() + "Fragment", "MVPFragment" + subfix);
+            else
+                map.put(mvpModule.getName() + "Activity", "MVPActivity" + subfix);
+
+            map.put(mvpModule.getName() + "Presenter", "PresenterTemplate" + subfix);
+            map.put(mvpModule.getName() + "View", "ViewTemplate" + subfix);
+        }
 
         if (mvpModule.hasInteractor())
             map.put(mvpModule.getName() + "Interactor", "InteractorTemplate" + subfix);

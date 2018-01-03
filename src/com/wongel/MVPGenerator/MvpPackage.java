@@ -13,7 +13,7 @@ public class MvpPackage extends AnAction {
 
     @Override
     public void actionPerformed(AnActionEvent e) {
-        OnDialogListner listner = (MvpPackageDialog dialog, boolean isMosby, MvpModule mvpModule) -> {
+        OnDialogListner listner = (MvpPackageDialog dialog, MvpModule mvpModule) -> {
 
             final PsiElement element = e.getData(CommonDataKeys.PSI_ELEMENT);
 

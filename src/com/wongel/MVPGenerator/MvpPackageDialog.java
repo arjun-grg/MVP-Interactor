@@ -12,15 +12,20 @@ public class MvpPackageDialog extends JDialog {
     private JButton buttonCancel;
     private JCheckBox checkBox1;
     private JCheckBox checkBox2;
+    private JCheckBox chkKotlin;
     private JTextField txtName;
     private JLabel txtError;
-    private JCheckBox chkKotlin;
-    private JCheckBox chkMosby;
-    private JCheckBox chkMosby3;
+    private JRadioButton rdbNone;
+    private JRadioButton rdbMosby1;
+    private JRadioButton rdbMosby3;
+    private ButtonGroup group = new ButtonGroup();
     private OnDialogListner listner;
 
     public MvpPackageDialog(OnDialogListner listner) {
         this.listner=listner;
+        group.add(rdbNone);
+        group.add(rdbMosby1);
+        group.add(rdbMosby3);
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
@@ -78,12 +83,14 @@ public class MvpPackageDialog extends JDialog {
         boolean isFragment=checkBox1.isSelected();
         boolean makeInterator=checkBox2.isSelected();
         boolean isKotlin=chkKotlin.isSelected();
-        String mosbyType = "mosby";
+        MvpModule.MVP_TYPE mosbyType = MvpModule.MVP_TYPE.None;
 
-        if (checkBox2.isSelected())
-            mosbyType += 3;
+        if (rdbMosby1.isSelected())
+            mosbyType = MvpModule.MVP_TYPE.Mosby1;
+        else if (rdbMosby3.isSelected())
+            mosbyType = MvpModule.MVP_TYPE.Mosby3;
 
-        listner.OnSuccess(this, chkMosby.isSelected(), new MvpModule(name, isFragment, makeInterator, isKotlin, mosbyType));
+        listner.OnSuccess(this, new MvpModule(name, isFragment, makeInterator, isKotlin, mosbyType));
     }
 
     public void setError(String msg) {
