@@ -131,11 +131,13 @@
             </constraints>
             <properties>
               <background color="-2429714"/>
-              <enabled value="false"/>
-              <focusable value="false"/>
+              <enabled value="true"/>
+              <focusPainted value="true"/>
+              <focusable value="true"/>
               <foreground color="-12828863"/>
               <inheritsPopupMenu value="false"/>
               <label value="Fragment"/>
+              <selected value="false"/>
               <text value="Fragment"/>
             </properties>
           </component>
